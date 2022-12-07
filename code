@@ -1,0 +1,47 @@
+//vivliothikes
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main(){
+char binary[256];
+int i;
+do
+{
+    printf("Doste enan thetiko arithmo: ");
+    scanf("%d", &i);
+    if (i < 0)
+    {
+      printf("O arithmos prepei na einai thetikos");
+    }
+    
+} while (i < 0);
+
+int length = 0;
+
+do
+{
+   if (i % 2 == 0) binary[length] = '0';
+   
+    else
+    
+        binary[length] = '1';
+    
+    i /= 2;
+    length++;
+   
+   
+} while (i != 0);
+ binary[length] = '\0';
+int middle = length / 2;
+char temp;
+for (int i = 0; i < middle; i++)
+{
+    temp = binary[i];
+    binary[i] = binary[length - i -1];
+    binary[length - i - 1] = temp;
+}
+printf("\nBinary Number is: %s\n ", binary);
+
+return 0;
+}
